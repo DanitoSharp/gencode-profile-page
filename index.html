@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile - GenCode</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Outfit&display=swap");
+
+      :root {
+        --displayNow: none;
+      }
+      body {
+        margin: 0em;
+        font-family: Outfit;
+        font-size: 1rem; /*C*/
+      }
+      span {
+        color: rgb(163, 163, 163);
+      }
+      div.main-container {
+        display: flex;
+        /* border: 1px solid red; */
+        height: 99.6vh;
+      }
+      div.black-screen {
+        /*C*/
+        display: var(--displayNow); /*C*/
+        opacity: 50%;
+        position: fixed;
+        z-index: 1;
+        background-color: black;
+        width: 100%;
+        height: 100vh;
+      }
+      section.options {
+        display: var(--displayNow); /*C*/
+        position: fixed; /*C*/
+        z-index: 2; /*C*/
+        background-color: #ebf9fc;
+        text-align: center;
+        padding: 0%; /*C*/
+        height: 100vh;
+        width: 80%; /*C*/
+        border-right: 2px solid #2d666d;
+        line-height: 4em; /*C*/
+        border-radius: 10px; /*C*/
+        border-top-left-radius: 0%;
+        border-bottom-left-radius: 0%;
+      }
+
+      .opt-logo{
+        display: none;
+      }
+
+      .mobile-logo{
+          display: block;
+          grid-area: logo;
+        }
+
+      .mobile-user-details{
+        display: var(--displayNow);
+      }
+      
+      .mobile-user-details p{
+        margin: 0;
+        height: 5vh;
+      }
+
+      .opt-list {
+        /*C*/
+        margin: 0;
+        border-bottom: 1px solid lightgrey;
+      }
+      section.options a {
+        font-size: 1.2rem; /*C*/
+        text-decoration: none;
+        color: black;
+      }
+
+      div.opt-buttons-container {
+        margin-top: 1em; /*C*/
+        display: flex;
+        flex-direction: column;
+      }
+      .opt-buttons {
+        /*C*/
+        background-color: white;
+        border: 1px solid #2d666d;
+        border-radius: 6px;
+        width: 60%;
+        height: 6vh;
+      }
+      /*C*/
+      .back-home {
+        color: #2d666d;
+      }
+      /*C*/
+      .log-out {
+        color: #de4d4d;
+      }
+      main {
+        display: grid;
+        grid-template-areas:
+          "logo"
+          "logo"
+          "header"
+          "activity"
+          "activity"
+          "activity"
+        ;
+        grid-template-columns: 100%;
+        grid-template-rows: 10%; /*C*/
+        background-color: #f2fafd;
+        margin: 0em;
+        padding: 0.5em;
+        width: 120%; /*C*/
+      }
+      
+      .mobile-logo img{
+        margin-left: 5.5em;
+        width: 40%;
+      }
+      main header {
+        display: flex;
+        justify-content: space-between;
+        grid-area: header;
+        height: 10vh;
+      }
+      main header ul {
+        display: flex;
+        list-style: none;
+        text-align: center; /*C*/
+        width: 100%; /*C*/
+        padding: 0;
+        /* margin-left: 10em; */
+      }
+      main header ul li {
+        width: 50%;
+      }
+      main header ul li a {
+        text-decoration: none;
+        color: black;
+        font-size: 1.5rem;
+      }
+
+      .user-details {
+        display: none; /*C*/
+        padding: 0 8em 0 0;
+      }
+
+      .user-details p {
+        margin: 0em;
+      }
+
+      div.activity {
+        grid-area: activity;
+
+      }
+
+      div.activity h2 {
+        margin: 0.4em 0 0 0; /*C*/
+      }
+
+      div.activity h3 {
+        margin: 1em 0 0 0;
+      }
+
+      .activity-table {
+        /* border:1px solid red; */
+        width: 100%; /*C*/
+        height: 15vh;
+      }
+      
+      .table-img {
+        width: 30%; /*C*/
+      }
+      .table-text {
+        width: 40%;
+      }
+      .table-button {
+        width: 30%; /*C*/
+      }
+
+      .details {
+        overflow: auto;
+      }
+
+      .details-text {
+        text-align: center;
+      }
+
+      .details-text p {
+        margin: 0em;
+      }
+      div.details a {
+        margin: auto;
+      }
+      div.details button {
+        border: none;
+        border-radius: 8px;
+        padding: 10% /*C*/ 10%;
+        width: 100%;
+        background-color: #76d4de;
+        color: black;
+        font-size: 1rem; /*C*/
+      }
+
+      @media only screen and (min-width: 376px) {
+        body {
+          margin: 0em;
+          font-family: Outfit;
+          font-size: 1rem;
+        }
+        span {
+          color: rgb(163, 163, 163);
+        }
+        div.main-container {
+          display: flex;
+          /* border: 1px solid red; */
+          height: 99.6vh;
+        }
+
+        section.options {
+          display: block; /*C*/
+          position: static; /*C*/
+          z-index: 0; /*C*/
+          background-color: #ebf9fc;
+          text-align: center;
+          padding: 2%;
+          height: 91vh;
+          width: 20%;
+          line-height: 3em;
+          border-right: none;
+          border-radius: 0px; /*C*/
+          border-top-left-radius: 0%;
+          border-bottom-left-radius: 0%;
+        }
+
+        .opt-logo{
+          display: block;
+        }
+
+        .opt-logo img{
+          width: 100%;
+        }
+
+        .mobile-logo{
+          display: none;
+          grid-area: logo;
+        }
+
+        .mobile-user-details{
+          display: none;
+        }
+
+        .opt-list {
+          margin: 0;
+          border-bottom: 1px solid lightgrey;
+        }
+        section.options a {
+          font-size: 1.2rem; /*C*/
+          text-decoration: none;
+          color: black;
+        }
+
+        div.opt-buttons-container {
+          margin-top: 1em; /*C*/
+          display: flex;
+          flex-direction: column;
+        }
+        .opt-buttons {
+          background-color: white;
+          border: none;
+          border-radius: 6px;
+          width: 80%;
+          height: 6vh;
+        }
+        /*C*/
+        .back-home {
+          color: #2d666d;
+        }
+        /*C*/
+        .log-out {
+          color: #de4d4d;
+        }
+        main {
+          display: grid;
+          grid-template-areas:
+            "header"
+            "activity"
+          ;
+
+          grid-template-columns: 100%;
+          grid-template-rows: 20%;
+          background-color: #f2fafd;
+          margin: 0em;
+          padding: 2em;
+          width: 100%;
+        }
+        
+        main header {
+          display: flex;
+          justify-content: space-between;
+          grid-area: header;
+          height: 10vh;
+        }
+        main header ul {
+          display: flex;
+          list-style: none;
+          text-align:left; /*C*/
+          width: 50%;
+          padding: 0;
+          /* margin-left: 10em; */
+        }
+        main header ul li {
+          width: 50%;
+        }
+        main header ul li a {
+          text-decoration: none;
+          color: black;
+          font-size: 1.5rem;
+        }
+
+        .user-details {
+          display:block;
+          padding: 0 8em 0 0;
+        }
+
+        .user-details p {
+          margin: 0em;
+        }
+
+        div.activity {
+          grid-area: activity;
+        }
+
+        div.activity h2 {
+          margin: 0.5em 0;
+        }
+
+        div.activity h3 {
+          margin: 2em 0 0 0;
+        }
+
+        .activity-table {
+          /* border:1px solid red; */
+          width: 60%;
+          height: 15vh;
+        }
+        .table-img {
+          width: 20%;
+        }
+        .table-text {
+          width: 40%;
+        }
+        .table-button {
+          width: 40%;
+        }
+
+        .details {
+          overflow: auto;
+        }
+
+        .details-text {
+          text-align: center;
+        }
+
+        .details-text p {
+          margin: 0em;
+        }
+        div.details a {
+          margin: auto;
+        }
+        div.details button {
+          border: none;
+          border-radius: 8px;
+          padding: 7% 10%;
+          width: 100%;
+          background-color: #76d4de;
+          color: black;
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="black-screen"></div>
+      <section class="options">
+        <div class="mobile-user-details">
+            <p><strong>Kemisala Abdul</strong></p>
+            <span>keemisalaabdul@gmail.com</span>
+        </div>
+        
+        <div class="opt-logo">
+          <img src="/images/1658939125212.png" alt="GenCode Logo">
+        </div>
+        
+        
+        <div class="opt-list">
+          <a href="#">Back</a>
+        </div>
+        <div class="opt-list">
+          <a href="#">Profile</a>
+        </div>
+        <div class="opt-list">
+          <a href="#">Dashboard</a>
+        </div>
+        <div class="opt-list">
+          <a href="#">View QR Codes</a>
+        </div>
+        <div class="opt-list">
+          <a href="#">Settings</a>
+        </div>
+        <div class="opt-list">
+          <a href="#">Help and Support</a>
+        </div>
+        <div class="opt-buttons-container">
+          <a href="#">
+            <button type="button" class="opt-buttons back-home">
+              <strong>Back To Home</strong>
+            </button>
+          </a>
+          <a href="#">
+            <button type="button" class="opt-buttons log-out">
+              <strong>Log Out</strong>
+            </button>
+          </a>
+        </div>
+      </section>
+      
+      <main>
+      <div class="mobile-logo">
+        <img src="/images/1658939125212.png" alt="GenCode Logo">
+      </div>
+        <header>
+          <ul>
+            <li><a href="#">Activity</a></li>
+            <li><a href="#">Folder</a></li>
+          </ul>
+
+          <div class="user-details">
+            <p><strong>Kemisala Abdul</strong></p>
+            <span>keemisalaabdul@gmail.com</span>
+          </div>
+        </header>
+
+        <div class="activity">
+          <h2>Recent Activity</h2>
+          <span>Finish generating your QR Code</span>
+
+          <div class="details">
+            <h3>Today</h3>
+            <table class="activity-table">
+              <tr>
+                <td class="table-img">
+                  <!-- <img src="" alt=""> -->
+                </td>
+                <td class="table-text">
+                  <div class="details-text">
+                    <p><strong>Untiled</strong></p>
+                    <span>www.google.com</span>
+                  </div>
+                </td>
+                <td class="table-button">
+                  <a href="#">
+                    <button type="button">
+                      <strong>Generate QR Code</strong>
+                    </button>
+                  </a>
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="details">
+            <h3>Yesterday</h3>
+            <table class="activity-table">
+              <td class="table-img"><!-- <img src="" alt=""> --></td>
+              <td class="table-text">
+                <div class="details-text">
+                  <p><strong>Untiled</strong></p>
+                  <span>www.ask.com</span>
+                </div>
+              </td>
+              <td class="table-button">
+                <a href="#">
+                  <button type="button">
+                    <strong>Generate QR Code</strong>
+                  </button>
+                </a>
+              </td>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
