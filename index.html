@@ -73,6 +73,10 @@
         margin: 0;
         border-bottom: 1px solid lightgrey;
       }
+
+      .opt-img img{
+        width: 10%;
+      }
       section.options a {
         font-size: 1.2rem; /*C*/
         text-decoration: none;
@@ -299,7 +303,7 @@
           padding: 2em;
           width: 100%;
         }
-        
+
         main header {
           display: flex;
           justify-content: space-between;
@@ -399,33 +403,33 @@
         </div>
         
         
-        <div class="opt-list">
-          <a href="#">Back</a>
+        <div class="opt-list opt-img">
+          <a href="#"><img src="/images/arrow.png" alt="backIcon"> Back</a>
         </div>
-        <div class="opt-list">
-          <a href="#">Profile</a>
+        <div class="opt-list opt-img">
+          <a href="#"><img src="/images/user.png" alt="profileIcon">Profile</a>
         </div>
-        <div class="opt-list">
-          <a href="#">Dashboard</a>
+        <div class="opt-list opt-img">
+          <a href="#"><img src="/images/dashboard.png" alt="dashBoardIcon">Dashboard</a>
         </div>
-        <div class="opt-list">
-          <a href="#">View QR Codes</a>
+        <div class="opt-list opt-img">
+          <a href="#"><img src="/images/qr-code.png" alt="qrCodeIcon">View QR Codes</a>
         </div>
-        <div class="opt-list">
-          <a href="#">Settings</a>
+        <div class="opt-list opt-img">
+          <a href="#"><img src="/images/settings.png" alt="settingsIcon">Settings</a>
         </div>
-        <div class="opt-list">
-          <a href="#">Help and Support</a>
+        <div class="opt-list opt-img">
+          <a href="#"><img src="/images/question.png" alt="questionIcon">Help and Support</a>
         </div>
         <div class="opt-buttons-container">
           <a href="#">
-            <button type="button" class="opt-buttons back-home">
+            <button type="button" class="opt-buttons back-home opt-img"><img src="/images/home.png" alt="homeIcon">
               <strong>Back To Home</strong>
             </button>
           </a>
           <a href="#">
-            <button type="button" class="opt-buttons log-out">
-              <strong>Log Out</strong>
+            <button type="button" class="opt-buttons log-out opt-img">
+              <strong><img src="/images/exit.png" alt="exitIcon">Log Out</strong>
             </button>
           </a>
         </div>
@@ -437,8 +441,8 @@
       </div>
         <header>
           <ul>
-            <li><a href="#">Activity</a></li>
-            <li><a href="#">Folder</a></li>
+            <li class="opt-img"><a href="#"><img src="/images/chart.png" alt="chartIcon">Activity</a></li>
+            <li class="opt-img"><a href="#"><img src="/images/folder.png" alt="folderIcon">Folder</a></li>
           </ul>
 
           <div class="user-details">
